@@ -1,0 +1,178 @@
+<!-- views/partials/navbar.ejs -->
+
+<navbar>
+    <%- include  ( "partials/navbar") %>
+</navbar>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin-top: 0px;
+            /* max-width: 300px;
+            margin: auto; */
+            /* text-align: center; */
+            /* font-family: arial; */
+        }
+
+        .de {
+
+            background-color: #215077;
+            /* color: white; */
+        }
+
+        .list-group-item {
+
+
+            background-color: #215077;
+            color: aliceblue !important;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <% if(data.length){
+
+        for(var i = 0; i< 1 ; i++) {%>
+
+    <div class="container">
+        <br>
+
+        <div class="row">
+
+
+            <div class="col-sm-4">
+
+
+
+
+
+
+                <div class="card">
+
+
+                    <img src="<%=data[0].picture%>" alt="<%=data[0].name%>" style="width:100%">
+
+
+                    <h1 style="color: #215077;"><%=data[0].name%></h1>
+
+                    <!-- <p class="title"><%=data[0].p_id%></p> -->
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+            <% }
+
+
+}
+
+
+else{
+   %>
+            <tr>
+                <td colspan="3">No user</td>
+            </tr>
+            <%
+ }
+  %>
+
+
+
+            <div class="col-sm-8">
+
+                <h4 style="font-size:x-large ; color: #215077;"><strong>Questions you have asked!!</strong></h4><br>
+
+
+
+
+
+
+                <div class="list-group">
+
+
+
+                    
+                    <% if(data.length){
+
+                        for(var i = 0; i< data.length; i++) {%>
+    
+
+
+                    <div class="de">
+
+
+        
+
+
+                        <div class="row">
+
+
+
+                            <div class="col-sm-9">
+
+
+                                <a class="list-group-item"><%=(i+1+" ") + data[i].question%></a>
+                            </div>
+
+                            <div class="col-sm-3">
+
+
+                                <a class="list-group-item" href="answer/view/<%=data[i].q_id%>">View Answers</a>
+                            </div>
+                        </div>
+
+                    </div><br>
+
+                    <% }
+
+
+}
+
+
+else{
+   %>
+                    <tr>
+                        <td colspan="3">No user</td>
+                    </tr>
+                    <%
+ }
+  %>
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+    <footer>
+
+        <%- include  ( "partials/footer") %>
+
+    </footer>
+
+</body>
+
+</html>

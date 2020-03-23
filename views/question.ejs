@@ -1,0 +1,119 @@
+
+<%- include  ( "partials/navbar") %>
+
+<!-----------------------question ---------------------->
+
+
+<div class="container">
+
+	<h3 class="display-4" style="color: #215077;"><blockquote>Question-Answer</blockquote></h3>
+
+
+<!--------Questions ----------->
+
+
+
+<% if(data.length){
+
+    for(var i = 0; i< 1; i++) {%> 
+
+
+
+	<div class="card">
+	<div class="card-header">
+	<h4 class="text-left"> Question</h4>
+		</div>
+		
+	<div class="card-body">
+		<blockquote class="blockquote text-left">
+		<p class="mb-0"><%=data[0].question%></p>
+		<footer class="blockquote-footer">Asked by <cite title="Source Title"><%=data[0].name%></cite></footer>
+		</blockquote>
+	</div>
+		
+		<div class="card-footer">
+		 
+		  <a href="#" class="btn btn-primary">Share</a>
+		</div>
+	</div>
+
+
+
+</div>
+<!--------Questions-------------->
+
+
+<% }
+
+}
+
+
+else{
+   %>
+  <tr>
+	 <td colspan="3">No user</td>
+  </tr>
+ <%
+ }
+  %>  
+
+  
+
+  
+
+<% if(data1.length){
+
+    for(var i = 0; i< data1.length; i++) {%> 
+
+
+
+
+<div class="container">
+
+<!--Answers----->
+
+<div class="card">
+	<div class="card-header">
+	<h4 class="text-left">Answer</h4>
+	
+		</div>
+		
+	<div class="card-body">
+		<blockquote class="blockquote text-left">
+		<p class="mb-0"><%=data1[i].answer%></p>
+		<!--<footer class="blockquote-footer">Answerd by <cite title="Source Title"><%=data1[i].name%></cite></footer>-->
+		</blockquote>
+	</div>
+		
+		<div class="card-footer">
+		   <!-- <a href="#" class="btn btn-primary">ReadMore</a> -->
+		  <a href="#" class="btn btn-primary">Share</a>
+		</div>
+	</div>
+</div>
+
+<% }
+
+}
+
+
+else{
+   %>
+  <tr>
+	 <td colspan="3"></td>
+  </tr>
+ <%
+ }
+  %>  
+
+
+<!--Answers----->
+
+
+
+<%- include  ( "partials/footer") %>
+
+</body>
+</html>
+
+
