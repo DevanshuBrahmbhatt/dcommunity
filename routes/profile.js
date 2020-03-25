@@ -13,7 +13,7 @@ function isAuth(req,res,next){
  
     if(userId){
 
-        // res.locals.user = req.user;
+        res.locals.user = req.user;
         // console.log("res.loca"+res.locals.user);
 
         

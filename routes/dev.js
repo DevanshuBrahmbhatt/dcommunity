@@ -7,7 +7,7 @@ const router = require("express").Router();
 
 router.get('/',(req, res) => {
 
- 
+ res.locals.user=req.user;
 res.render("dev");
 
    

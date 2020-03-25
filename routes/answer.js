@@ -12,7 +12,8 @@ const app = express();
 function isAuth(req,res,next){
 
     userId=req.user;
-    console.log(userId)
+    
+    res.locals.user = req.user;
  
     if(userId){
 
@@ -43,6 +44,8 @@ function isAuth(req,res,next){
 
 
 router.get('/:id',isAuth,(req,res)=>{
+    
+    res.locals.user = req.user;
 
 var q_id= req.params.id;
 console.log(q_id);
@@ -63,6 +66,8 @@ conn.query('select * from questions where q_id=?',q_id,(err,result)=>{
 
 router.get('/view/:id',(req,res)=>{
 
+    
+    res.locals.user = req.user;
     var q_id= req.params.id;
     // console.log(q_id);
 

@@ -11,6 +11,8 @@ const app = express();
 
 function isAuth(req,res,next){
 
+    
+    res.locals.user = req.user;
     userId=req.user;
     // console.log(userId)
  

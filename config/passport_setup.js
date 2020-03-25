@@ -14,7 +14,7 @@ passport.deserializeUser((id,done)=>{
 
     
     conn.query('SELECT * FROM profile WHERE google_id=?',id,(err,response,meta)=>{
-       console.log(id);
+    //    console.log(id);
         done(null,id)
     });
 
@@ -25,8 +25,8 @@ passport.use(
 
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret,
-        callbackURL:  "https://dducommunity.herokuapp.com/auth/google/redirect"
-        // callbackURL:  "/auth/google/redirect"
+        // callbackURL:  "https://dducommunity.herokuapp.com/auth/google/redirect"
+        callbackURL:  "/auth/google/redirect"
 
     },  (accessToken, refreshToken, profile, done) => {
 

@@ -12,6 +12,7 @@ router.get("/logout", (req, res) => {
     if(err) {
        console.log(err);
     }
+    res.locals.user=undefined;
 
   res.redirect('/');
 });

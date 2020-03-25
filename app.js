@@ -81,7 +81,8 @@ app.get('/', (req, res) => {
 
 
     
-    // res.locals.user = req.user;
+ res.locals.user = req.user;
+ console.log(res.locals.user);
     res.render('index');
 });
 
