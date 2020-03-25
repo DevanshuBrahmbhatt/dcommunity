@@ -5,7 +5,31 @@ const conn=require('../config/database');
 
 
 
-router.get('/',(req, res) => {
+
+function isAuth(req,res,next){
+
+    
+
+    userId=req.user;
+ 
+    if(userId){
+
+
+        
+        return next();
+    }
+    else{
+
+        res.redirect('/auth/google');
+       
+    }
+
+
+
+}
+
+
+router.get('/',isAuth,(req, res) => {
 
     userId=req.user;
  
@@ -20,7 +44,6 @@ conn.query('SELECT * FROM questions INNER JOIN profile on questions.p_id=profile
 
     else{
 
-        console.log(result);
          res.render("profile",{data:result});
         
     }

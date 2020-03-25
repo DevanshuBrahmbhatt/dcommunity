@@ -3,7 +3,6 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
-
 const path = require('path');
 const passport = require('passport');
 var session = require("express-session");
@@ -43,8 +42,11 @@ app.use(bodyParser.json());
 // express session middleware setup
 app.use(session({
     secret: 'W$q4=25*8%v-}UV',
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 30000
+        }
 }));
 
 // passport middleware setup ( it is mandatory to put it after session middleware setup)
@@ -60,9 +62,6 @@ app.use('/answer',answerRoutes);
 
 
 
-
-
-// // index page 
 app.get('/', (req, res) => {
 
     res.render('index');
@@ -72,7 +71,20 @@ app.get('/', (req, res) => {
 
 
 
+app.use(function (req, res, next) {
 
+    if(req.session.userId !== undefined){
+
+    res.locals.loggedIn = req.user;
+    }
+    else {
+
+    res.locals.loggedIn = null;
+
+  }
+    next();
+
+});
 
 
 // set the app to listen on the port

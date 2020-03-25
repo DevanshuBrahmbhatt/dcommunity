@@ -12,7 +12,7 @@ const app = express();
 function isAuth(req,res,next){
 
     userId=req.user;
-    console.log(userId)
+    // console.log(userId)
  
     if(userId){
 
@@ -23,7 +23,7 @@ function isAuth(req,res,next){
             }
         
                 p_id=result[0].p_id;
-                console.log(p_id);
+                // console.log(p_id);
         
              });
         
@@ -50,7 +50,7 @@ conn.query('SELECT * FROM PROFILE where google_id=?',userId,(err,result)=>{
 if(err){
     console.log(err);
 }
-console.log(result[0].p_id);
+// console.log(result[0].p_id);
 
 
 
@@ -84,8 +84,8 @@ router.post('/add', isAuth,(req, res) => {
             
             }
             else{
-            console.log(result);
-            res.render("index");
+            // console.log(result);
+            res.redirect("/");
 
             }
 

@@ -1,13 +1,18 @@
 const router = require("express").Router();
 const passport = require("passport");
+const conn=require('../config/database');
 
 router.get("/login", (req, res) => {
   res.render("login", { user: req.user });
 });
 
 router.get("/logout", (req, res) => {
+  
+  req.session.destroy();
+  // conn.end();
   res.redirect('/');
-// res.render("index");
+
+
 });
 
 router.get(
@@ -18,7 +23,8 @@ router.get(
 );
 
 router.get("/google/redirect/", passport.authenticate("google"), (req, res) => {
-res.render("index");
+ 
+res.redirect("/");
 
 });
 

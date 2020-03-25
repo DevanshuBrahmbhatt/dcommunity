@@ -41,8 +41,8 @@ passport.use(
         conn.query("select * from profile where google_id=?",id,(err,response,meta)=>{
 
                 if(response[0]){
-                    console.log(profile);
-                    console.log("aready exists");
+                    // console.log(profile);
+                    // console.log("aready exists");
                     done(null, profile);
                     
 

@@ -6,7 +6,7 @@
 
 <div class="container">
 
-	<h3 class="display-4" style="color: #215077;"><blockquote>Question-Answer</blockquote></h3>
+	<h3 class="display-4" style="color: #250007;"><blockquote>Question-Answer</blockquote></h3>
 
 
 <!--------Questions ----------->
@@ -15,7 +15,7 @@
 
 <% if(data.length){
 
-    for(var i = 0; i< 1; i++) {%> 
+    for(var i = 0; i< 1 ; i++) {%> 
 
 
 
@@ -51,21 +51,18 @@
 else{
    %>
   <tr>
-	 <td colspan="3">No user</td>
+	 <td colspan="3"></td>
   </tr>
  <%
  }
   %>  
 
-  
-
-  
-
-<% if(data1.length){
-
-    for(var i = 0; i< data1.length; i++) {%> 
 
 
+
+  <% if(data.length){
+
+    for(var i = 0; i< data.length ; i++) {%> 
 
 
 <div class="container">
@@ -80,8 +77,8 @@ else{
 		
 	<div class="card-body">
 		<blockquote class="blockquote text-left">
-		<p class="mb-0"><%=data1[i].answer%></p>
-		<!--<footer class="blockquote-footer">Answerd by <cite title="Source Title"><%=data1[i].name%></cite></footer>-->
+		<p class="mb-0"><%=data[i].answer%></p>
+		<footer class="blockquote-footer">Answerd by <cite title="Source Title"><%=data[i].ansname%></cite></footer>
 		</blockquote>
 	</div>
 		
