@@ -8,11 +8,13 @@ router.get("/login", (req, res) => {
 
 router.get("/logout", (req, res) => {
   
-  req.session.destroy();
-  // conn.end();
+  req.session.destroy((err) => {
+    if(err) {
+       console.log(err);
+    }
+
   res.redirect('/');
-
-
+});
 });
 
 router.get(
@@ -23,7 +25,7 @@ router.get(
 );
 
 router.get("/google/redirect/", passport.authenticate("google"), (req, res) => {
- 
+  res.locals.user = req.user;
 res.redirect("/");
 
 });

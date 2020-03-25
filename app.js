@@ -10,6 +10,9 @@ var session = require("express-session");
 const authRoutes = require('./routes/auth');
 const profileRoutes=require('./routes/profile');
 const questionRoutes=require('./routes/questions');
+const dev=require('./routes/dev');
+
+
 const askquestionRoutes=require('./routes/askquestion');
 const answerRoutes=require('./routes/answer');
 const passportSetup = require('./config/passport_setup');
@@ -45,9 +48,11 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        maxAge: 30000
+        maxAge: 300000
         }
 }));
+
+
 
 // passport middleware setup ( it is mandatory to put it after session middleware setup)
 app.use(passport.initialize());
@@ -58,33 +63,33 @@ app.use('/profile', profileRoutes);
 app.use('/questions',questionRoutes);
 app.use('/askquestion',askquestionRoutes);
 app.use('/answer',answerRoutes);
+app.use('/dev',dev);
 
 
 
+// app.use(function (req, res, next) {
+//     if(req.session.user !== undefined){
+//     res.locals.loggedIn = req.user;
+//     console.log("res.logged "+res.locals.loggedIn);
+//     } else{
+//     res.locals.loggedIn = null;
+//     }
+//     next();
+//     });
 
 app.get('/', (req, res) => {
 
+
+    
+    // res.locals.user = req.user;
     res.render('index');
 });
 
 
+//middleware to make ‘user’ available to all templates
 
 
 
-app.use(function (req, res, next) {
-
-    if(req.session.userId !== undefined){
-
-    res.locals.loggedIn = req.user;
-    }
-    else {
-
-    res.locals.loggedIn = null;
-
-  }
-    next();
-
-});
 
 
 // set the app to listen on the port

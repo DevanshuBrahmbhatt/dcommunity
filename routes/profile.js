@@ -9,11 +9,12 @@ const conn=require('../config/database');
 function isAuth(req,res,next){
 
     
-
     userId=req.user;
  
     if(userId){
 
+        // res.locals.user = req.user;
+        // console.log("res.loca"+res.locals.user);
 
         
         return next();
