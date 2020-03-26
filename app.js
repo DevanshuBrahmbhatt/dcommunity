@@ -11,12 +11,13 @@ const authRoutes = require('./routes/auth');
 const profileRoutes=require('./routes/profile');
 const questionRoutes=require('./routes/questions');
 const dev=require('./routes/dev');
+const adminqa=require('./routes/adminqa');
 
 
 const askquestionRoutes=require('./routes/askquestion');
 const answerRoutes=require('./routes/answer');
 const passportSetup = require('./config/passport_setup');
-const cs = require('cookie-session')
+const cs = require('cookie-session');
 const conn = require('./config/database');
 const app = express();
 
@@ -64,6 +65,7 @@ app.use('/questions',questionRoutes);
 app.use('/askquestion',askquestionRoutes);
 app.use('/answer',answerRoutes);
 app.use('/dev',dev);
+app.use('/adminqa',adminqa);
 
 
 

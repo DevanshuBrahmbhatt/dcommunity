@@ -1,0 +1,75 @@
+
+ <%- include  ( "partials/navbar") %>
+
+ <div class="container">
+
+            <div class="col-sm-8">
+
+                <h4 style="font-size:x-large ; color: #215077;"><strong>Questions to be auth!!</strong></h4><br>
+
+
+
+
+
+
+                <div class="list-group">
+
+
+
+                    
+                    <% if(data.length){
+
+                        for(var i = 0; i< data.length; i++) {%>
+    
+
+
+                    <div class="de">
+
+
+        
+
+
+                        <div class="row">
+
+
+
+                            <div class="col-sm-9">
+
+
+                                <div class="list-group-item"><%= data[i].question%></div>
+                            </div>
+
+                            <div class="col-sm-3">
+
+
+                                <a  class="list-group-item"  style="color:black !important;" href="/adminqa/authquestion/<%=data[i].q_id%>">Authenticate</a>
+                            </div>
+                        </div>
+
+                    </div><br>
+
+                    <% }
+
+
+}
+
+
+else{
+   %>
+                    <tr>
+                        <td colspan="3">No user</td>
+                    </tr>
+                    <%
+ }
+  %>
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    
+        <%- include  ( "partials/footer") %>

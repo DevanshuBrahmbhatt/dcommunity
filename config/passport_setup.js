@@ -25,8 +25,8 @@ passport.use(
 
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret,
-        callbackURL:  "https://dducommunity.herokuapp.com/auth/google/redirect"
-        // callbackURL:  "/auth/google/redirect"
+        // callbackURL:  "https://dducommunity.herokuapp.com/auth/google/redirect"
+        callbackURL:  "/auth/google/redirect"
 
     },  (accessToken, refreshToken, profile, done) => {
 
